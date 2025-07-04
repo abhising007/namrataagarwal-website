@@ -30,18 +30,35 @@ const Index = () => {
       id: 1,
       title: "The grasshopper and the owl",
       description: "This story takes us to the natural habitat of the Grasshopper whose courage and intelligence help him outsmart the Owl and escape to safety.",
-      image: "https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&h=600&fit=crop",
-      amazonUrl: "#",
+      image: "books/Grasshopper_Owly_SX500.jpg",
+      amazonUrl: "https://www.amazon.com/gp/product/B08KY9S13W/ref=dbs_a_def_rwt_bibl_vppi_i0",
       year: "2023"
     },
     {
       id: 2,
       title: "Misha learns about Money: Learn to spend and save Money",
-      description: "This delightful little book is a must-have for all parents who wish to begin teaching their children the value and limitations of money and the importance of saving and spending wisely.",
-      image: "https://images.unsplash.com/photo-1589998059171-988d887df646?w=400&h=600&fit=crop",
-      amazonUrl: "#",
+      description: "This delightful little book is a must-have for all parents who wish to begin teaching their children the value and limitations of money and the importance of saving and spending. Follow the story of Misha, a little girl who thinks she should be able to have all the toys she wants, especially all the same toys her friends have. Misha’s mother cannot keep up with her daughter’s demands, and, in desperation, finally tries giving Misha an allowance. See what happens when this little girl begins to grow up as she learns about saving and spending.",
+      image: "books/Misha_learns_money_SX500.jpg?w=400&h=600&fit=crop",
+      amazonUrl: "https://www.amazon.com/gp/product/0692374299/ref=dbs_a_def_rwt_bibl_vppi_i4",
+      year: "2022"
+    },
+    {
+      id: 3,
+      title: "Misha and her farm adventure",
+      description: "Misha is a very curious little girl. One evening at dinner she asks her dad where food comes from. Misha is very interested in food, and so is her little dog Fluffy, who likes being fed from the table (don’t let dad catch on!) Follow Misha and Fluffy as they both learn about seeds and how plants grow, about sun and rain, and even about scarecrows (scary!) and worms (yuck!). This delightful little book is a wonderful introduction to farming for any little boy or girl who has ever asked, “Where does our food come from?” Misha and Fluffy know!",
+      image: "books/Misha_Farm_SX500.jpg?w=400&h=600&fit=crop",
+      amazonUrl: "https://www.amazon.com/gp/product/B014VR37N4/ref=dbs_a_def_rwt_bibl_vppi_i2boo",
+      year: "2022"
+    },
+    {
+      id: 4,
+      title: "Misha and the Gigantic Birthday Cake",
+      description: "Misha is at it again. This time it’s her birthday and she’s asked her mother for a gigantic birthday cake, one as tall as a Christmas tree. Follow Misha and her friends as they try to figure out how to blow out the candles and cut such a huge cake—and the chaos that follows. It’s a birthday to remember and sometimes dreams can come through—or do they?Misha is at it again. This time it’s her birthday and she’s asked her mother for a gigantic birthday cake, one as tall as a Christmas tree. Follow Misha and her friends as they try to figure out how to blow out the candles and cut such a huge cake—and the chaos that follows. It’s a birthday to remember and sometimes dreams can come through—or do they?",
+      image: "books/Misha_Gigantic_Cake_SX500.jpg?w=400&h=600&fit=crop",
+      amazonUrl: "https://www.amazon.com/gp/product/B075D9BQ6N/ref=dbs_a_def_rwt_bibl_vppi_i1",
       year: "2022"
     }
+
   ];
 
   const activities = [
@@ -76,6 +93,7 @@ const Index = () => {
     }
   ];
 
+
   const visits = [
     {
       title: "OLC School Visit",
@@ -95,6 +113,24 @@ const Index = () => {
       author: "Sea Spicer",
       rating: 5,
       bookTitle: "Misha and the Gigantic Birthday Cake (Misha Books)"
+    },
+    {
+      text: "My son loves this book. He loves moving his head side to side with the owl and marching like the grasshopper. We read it every night now at bedtime!",
+      author: "Patrick M Perrotto",
+      rating: 5,
+      bookTitle: "The Grasshopper and the Owl"
+    },
+    {
+      text: "We were fortunate enough to have the author read this book at our Library. The pages are bright and compelling for a story time group, and the children identified with the story. This was a learning opportunity for both the children and for the parents' discussion. The story implements some basics of arithmetic facts with the real world application, making the lesson meaningful and memorable. The author is clearly an emotionally intelligent, creative parent, teacher and writer. We look forward to reading more from this author!",
+      author: "Sea Spicer",
+      rating: 5,
+      bookTitle: "Misha learns about Money: Learn to spend and save Money"
+    },
+    {
+      text: "I needed a book to give to my child when she was opening a bank account. This is a great little story to explain the value of money.",
+      author: "John Mathews",
+      rating: 5,
+      bookTitle: "Misha learns about Money: Learn to spend and save Money"
     }
   ];
 
@@ -175,7 +211,7 @@ const Index = () => {
             </div>
             <div className="flex justify-center lg:justify-end">
               <img
-                src="https://images.unsplash.com/photo-1494790108755-2616c86ca6b8?w=500&h=600&fit=crop&crop=face"
+                src="about/DP.png?w=500&h=600&fit=crop&crop=face"
                 alt="Namrata Agarwal - Children's Book Author"
                 className="rounded-2xl shadow-2xl w-80 h-96 object-cover"
               />
@@ -190,7 +226,7 @@ const Index = () => {
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 bg-cyan-600/20 text-cyan-300 px-4 py-2 rounded-full text-sm font-medium mb-6">
               <Calendar className="h-4 w-4" />
-              Coming September 2024
+              Coming September 2025
             </div>
             <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
               Latest Book Release
@@ -202,8 +238,8 @@ const Index = () => {
             <div className="order-2 lg:order-1">
               <div className="aspect-[3/4] max-w-md mx-auto overflow-hidden rounded-2xl shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=600&fit=crop"
-                  alt="Misha and the Magic Garden - New Book"
+                  src="books/Mithai_Box_Is_Not_Empty_SX500.jpg"
+                  alt="The Mithai Box Is Not Emptyn - New Book"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>
@@ -211,20 +247,24 @@ const Index = () => {
             
             <div className="order-1 lg:order-2 text-center lg:text-left">
               <h3 className="text-3xl lg:text-4xl font-bold text-white mb-6">
-                Misha and the Magic Garden
+                The Mithai Box Is Not Empty
               </h3>
               <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-                Join Misha on her most enchanting adventure yet as she discovers a magical garden where vegetables grow with wishes and dreams. This heartwarming tale teaches children about patience, kindness, and the magic of nurturing both plants and friendships.
+                This delicious sweet picture book celebrates the joys (and rewards) of sharing. . . and delectable Indian desserts!
+
+Ria wants to be the best chai party host to impress her grandparents, who are visiting all the way from India. She even shares her precious mithai box of her favorite sweet, motichoor ladoo, with the whole family. After all, her grandparents always taught her “Atithi devo bhava, like God we welcome our guests with warmth and respect.”
+
+Everyone loves the motichoor ladoo. And Ria is happy that everyone else is happy. But as the ladoo disappears, she worries that there will be none left for her. What good is being the best host if Ria doesn’t get to have fun too?
+
+But her grandmother has a surprise. . .one last motichoor ladoo!
+
+Sharing has never been so sweet! The Mithai Box Is Not Empty celebrates the joys of generosity, but reminds us not to forget our own happiness. An author’s note on mithais and a matching mithai game are included in the back of the book.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
                 <Button size="lg" className="bg-cyan-600 hover:bg-cyan-700">
                   <ExternalLink className="h-5 w-5 mr-2" />
                   Pre-order on Amazon
-                </Button>
-                <Button variant="outline" size="lg" className="border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-slate-900">
-                  <BookOpen className="h-5 w-5 mr-2" />
-                  Read Sample Chapter
                 </Button>
               </div>
               
@@ -276,13 +316,13 @@ const Index = () => {
               <div className="mt-8">
                 <h4 className="text-xl font-semibold mb-4 text-white">Follow me on social:</h4>
                 <div className="flex space-x-4">
-                  <a href="#" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+                  <a href="https://www.instagram.com/namrata.writer/" className="text-cyan-400 hover:text-cyan-300 transition-colors">
                     <Instagram className="h-8 w-8" />
                   </a>
-                  <a href="#" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+                  <a href="https://www.linkedin.com/in/namrata-agarwal-bb817b13/" className="text-cyan-400 hover:text-cyan-300 transition-colors">
                     <Linkedin className="h-8 w-8" />
                   </a>
-                  <a href="#" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+                  <a href="https://mobile.twitter.com/namrataagarwal" className="text-cyan-400 hover:text-cyan-300 transition-colors">
                     <Twitter className="h-8 w-8" />
                   </a>
                 </div>
@@ -544,13 +584,13 @@ const Index = () => {
             <div>
               <h4 className="font-semibold mb-4">Follow Me</h4>
               <div className="flex space-x-4">
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <a href="https://www.instagram.com/namrata.writer/" className="text-gray-400 hover:text-white transition-colors">
                   <Instagram className="h-6 w-6" />
                 </a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <a href="https://www.linkedin.com/in/namrata-agarwal-bb817b13/" className="text-gray-400 hover:text-white transition-colors">
                   <Linkedin className="h-6 w-6" />
                 </a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <a href="https://mobile.twitter.com/namrataagarwal" className="text-gray-400 hover:text-white transition-colors">
                   <Twitter className="h-6 w-6" />
                 </a>
               </div>
@@ -558,7 +598,7 @@ const Index = () => {
           </div>
           
           <div className="border-t border-slate-700 pt-8 mt-8 text-center text-gray-400">
-            <p>&copy; 2024 Namrata Agarwal. All rights reserved.</p>
+            <p>&copy; 2025 Namrata Agarwal. All rights reserved.</p>
           </div>
         </div>
       </footer>
