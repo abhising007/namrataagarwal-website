@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Mail, MapPin, Calendar, Award, Star, ExternalLink, Menu, X, Instagram, Linkedin, Twitter, BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -37,7 +38,7 @@ const Index = () => {
     {
       id: 2,
       title: "Misha learns about Money: Learn to spend and save Money",
-      description: "This delightful little book is a must-have for all parents who wish to begin teaching their children the value and limitations of money and the importance of saving and spending. Follow the story of Misha, a little girl who thinks she should be able to have all the toys she wants, especially all the same toys her friends have. Misha’s mother cannot keep up with her daughter’s demands, and, in desperation, finally tries giving Misha an allowance. See what happens when this little girl begins to grow up as she learns about saving and spending.",
+      description: "This delightful little book is a must-have for all parents who wish to begin teaching their children the value and limitations of money and the importance of saving and spending. Follow the story of Misha, a little girl who thinks she should be able to have all the toys she wants, especially all the same toys her friends have. Misha's mother cannot keep up with her daughter's demands, and, in desperation, finally tries giving Misha an allowance. See what happens when this little girl begins to grow up as she learns about saving and spending.",
       image: "books/Misha_learns_money_SX500.jpg?w=400&h=600&fit=crop",
       amazonUrl: "https://www.amazon.com/gp/product/0692374299/ref=dbs_a_def_rwt_bibl_vppi_i4",
       year: "2022"
@@ -45,7 +46,7 @@ const Index = () => {
     {
       id: 3,
       title: "Misha and her farm adventure",
-      description: "Misha is a very curious little girl. One evening at dinner she asks her dad where food comes from. Misha is very interested in food, and so is her little dog Fluffy, who likes being fed from the table (don’t let dad catch on!) Follow Misha and Fluffy as they both learn about seeds and how plants grow, about sun and rain, and even about scarecrows (scary!) and worms (yuck!). This delightful little book is a wonderful introduction to farming for any little boy or girl who has ever asked, “Where does our food come from?” Misha and Fluffy know!",
+      description: "Misha is a very curious little girl. One evening at dinner she asks her dad where food comes from. Misha is very interested in food, and so is her little dog Fluffy, who likes being fed from the table (don't let dad catch on!) Follow Misha and Fluffy as they both learn about seeds and how plants grow, about sun and rain, and even about scarecrows (scary!) and worms (yuck!). This delightful little book is a wonderful introduction to farming for any little boy or girl who has ever asked, "Where does our food come from?" Misha and Fluffy know!",
       image: "books/Misha_Farm_SX500.jpg?w=400&h=600&fit=crop",
       amazonUrl: "https://www.amazon.com/gp/product/B014VR37N4/ref=dbs_a_def_rwt_bibl_vppi_i2boo",
       year: "2022"
@@ -53,7 +54,7 @@ const Index = () => {
     {
       id: 4,
       title: "Misha and the Gigantic Birthday Cake",
-      description: "Misha is at it again. This time it’s her birthday and she’s asked her mother for a gigantic birthday cake, one as tall as a Christmas tree. Follow Misha and her friends as they try to figure out how to blow out the candles and cut such a huge cake—and the chaos that follows. It’s a birthday to remember and sometimes dreams can come through—or do they?Misha is at it again. This time it’s her birthday and she’s asked her mother for a gigantic birthday cake, one as tall as a Christmas tree. Follow Misha and her friends as they try to figure out how to blow out the candles and cut such a huge cake—and the chaos that follows. It’s a birthday to remember and sometimes dreams can come through—or do they?",
+      description: "Misha is at it again. This time it's her birthday and she's asked her mother for a gigantic birthday cake, one as tall as a Christmas tree. Follow Misha and her friends as they try to figure out how to blow out the candles and cut such a huge cake—and the chaos that follows. It's a birthday to remember and sometimes dreams can come through—or do they?Misha is at it again. This time it's her birthday and she's asked her mother for a gigantic birthday cake, one as tall as a Christmas tree. Follow Misha and her friends as they try to figure out how to blow out the candles and cut such a huge cake—and the chaos that follows. It's a birthday to remember and sometimes dreams can come through—or do they?",
       image: "books/Misha_Gigantic_Cake_SX500.jpg?w=400&h=600&fit=crop",
       amazonUrl: "https://www.amazon.com/gp/product/B075D9BQ6N/ref=dbs_a_def_rwt_bibl_vppi_i1",
       year: "2022"
@@ -349,36 +350,42 @@ Sharing has never been so sweet! The Mithai Box Is Not Empty celebrates the joys
       <section id="books" className="py-20 bg-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">Books</h2>bounds-checks
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">Books</h2>
             <div className="w-20 h-1 bg-cyan-400 mx-auto mb-8"></div>
             <p className="text-lg text-gray-300 max-w-2xl mx-auto">
               Discover engaging stories that educate and entertain young readers.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {books.map((book) => (
               <Card key={book.id} className="bg-slate-800 border-slate-700 overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 p-6">
-                  <div>
-                    <h3 className="text-2xl font-bold text-white mb-4">{book.title}</h3>
-                    <div className="w-16 h-1 bg-cyan-400 mb-4"></div>
-                    <p className="text-gray-300 mb-6 leading-relaxed">
-                      {book.description}
-                    </p>
-                    <a href={book.amazonUrl} target="_blank">
-                      <Button  className="bg-slate-700 hover:bg-slate-600 text-white border border-slate-600" >
-                      Order Now
-                      </Button>
-                    </a>
-                    
+                <div className="flex flex-col md:flex-row">
+                  <div className="md:w-1/3 flex-shrink-0">
+                    <div className="aspect-square overflow-hidden">
+                      <img
+                        src={book.image}
+                        alt={book.title}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
                   </div>
-                  <div className="aspect-[3/4] overflow-hidden rounded-lg">
-                    <img
-                      src={book.image}
-                      alt={book.title}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                    />
+                  <div className="md:w-2/3 p-6 flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-xl font-bold text-white mb-3">{book.title}</h3>
+                      <div className="w-12 h-1 bg-cyan-400 mb-4"></div>
+                      <p className="text-gray-300 text-sm leading-relaxed mb-6 line-clamp-4">
+                        {book.description}
+                      </p>
+                    </div>
+                    <div className="mt-auto">
+                      <a href={book.amazonUrl} target="_blank">
+                        <Button className="bg-slate-700 hover:bg-slate-600 text-white border border-slate-600 w-full md:w-auto">
+                          <ExternalLink className="h-4 w-4 mr-2" />
+                          Order Now
+                        </Button>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </Card>
