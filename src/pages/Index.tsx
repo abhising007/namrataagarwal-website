@@ -316,13 +316,13 @@ Sharing has never been so sweet! The Mithai Box Is Not Empty celebrates the joys
               <div className="mt-8">
                 <h4 className="text-xl font-semibold mb-4 text-white">Follow me on social:</h4>
                 <div className="flex space-x-4">
-                  <a href="https://www.instagram.com/namrata.writer/" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+                  <a href="https://www.instagram.com/namrata.writer/"  target="_blank" className="text-cyan-400 hover:text-cyan-300 transition-colors">
                     <Instagram className="h-8 w-8" />
                   </a>
-                  <a href="https://www.linkedin.com/in/namrata-agarwal-bb817b13/" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+                  <a href="https://www.linkedin.com/in/namrata-agarwal-bb817b13/"  target="_blank" className="text-cyan-400 hover:text-cyan-300 transition-colors">
                     <Linkedin className="h-8 w-8" />
                   </a>
-                  <a href="https://mobile.twitter.com/namrataagarwal" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+                  <a href="https://mobile.twitter.com/namrataagarwal"  target="_blank" className="text-cyan-400 hover:text-cyan-300 transition-colors">
                     <Twitter className="h-8 w-8" />
                   </a>
                 </div>
@@ -366,9 +366,12 @@ Sharing has never been so sweet! The Mithai Box Is Not Empty celebrates the joys
                     <p className="text-gray-300 mb-6 leading-relaxed">
                       {book.description}
                     </p>
-                    <Button className="bg-slate-700 hover:bg-slate-600 text-white border border-slate-600">
+                    <a href={book.amazonUrl} target="_blank">
+                      <Button  className="bg-slate-700 hover:bg-slate-600 text-white border border-slate-600" >
                       Order Now
-                    </Button>
+                      </Button>
+                    </a>
+                    
                   </div>
                   <div className="aspect-[3/4] overflow-hidden rounded-lg">
                     <img
@@ -584,13 +587,13 @@ Sharing has never been so sweet! The Mithai Box Is Not Empty celebrates the joys
             <div>
               <h4 className="font-semibold mb-4">Follow Me</h4>
               <div className="flex space-x-4">
-                <a href="https://www.instagram.com/namrata.writer/" className="text-gray-400 hover:text-white transition-colors">
+                <a href="https://www.instagram.com/namrata.writer/"  target="_blank" className="text-gray-400 hover:text-white transition-colors">
                   <Instagram className="h-6 w-6" />
                 </a>
-                <a href="https://www.linkedin.com/in/namrata-agarwal-bb817b13/" className="text-gray-400 hover:text-white transition-colors">
+                <a href="https://www.linkedin.com/in/namrata-agarwal-bb817b13/"  target="_blank" className="text-gray-400 hover:text-white transition-colors">
                   <Linkedin className="h-6 w-6" />
                 </a>
-                <a href="https://mobile.twitter.com/namrataagarwal" className="text-gray-400 hover:text-white transition-colors">
+                <a href="https://mobile.twitter.com/namrataagarwal"  target="_blank" className="text-gray-400 hover:text-white transition-colors">
                   <Twitter className="h-6 w-6" />
                 </a>
               </div>
