@@ -1,6 +1,5 @@
-
 import { useState } from 'react';
-import { Mail, MapPin, Calendar, Award, Star, ExternalLink, Menu, X, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { Mail, MapPin, Calendar, Award, Star, ExternalLink, Menu, X, Instagram, Linkedin, Twitter, BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -180,6 +179,72 @@ const Index = () => {
                 alt="Namrata Agarwal - Children's Book Author"
                 className="rounded-2xl shadow-2xl w-80 h-96 object-cover"
               />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Latest Book Hero Section */}
+      <section className="py-20 bg-gradient-to-r from-cyan-900 to-slate-800 border-t border-slate-700">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-cyan-600/20 text-cyan-300 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <Calendar className="h-4 w-4" />
+              Coming September 2024
+            </div>
+            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
+              Latest Book Release
+            </h2>
+            <div className="w-24 h-1 bg-cyan-400 mx-auto"></div>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="order-2 lg:order-1">
+              <div className="aspect-[3/4] max-w-md mx-auto overflow-hidden rounded-2xl shadow-2xl">
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=600&fit=crop"
+                  alt="Misha and the Magic Garden - New Book"
+                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            </div>
+            
+            <div className="order-1 lg:order-2 text-center lg:text-left">
+              <h3 className="text-3xl lg:text-4xl font-bold text-white mb-6">
+                Misha and the Magic Garden
+              </h3>
+              <p className="text-lg text-gray-300 mb-8 leading-relaxed">
+                Join Misha on her most enchanting adventure yet as she discovers a magical garden where vegetables grow with wishes and dreams. This heartwarming tale teaches children about patience, kindness, and the magic of nurturing both plants and friendships.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
+                <Button size="lg" className="bg-cyan-600 hover:bg-cyan-700">
+                  <ExternalLink className="h-5 w-5 mr-2" />
+                  Pre-order on Amazon
+                </Button>
+                <Button variant="outline" size="lg" className="border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-slate-900">
+                  <BookOpen className="h-5 w-5 mr-2" />
+                  Read Sample Chapter
+                </Button>
+              </div>
+              
+              <div className="bg-slate-800/50 p-6 rounded-lg border border-slate-700">
+                <h4 className="font-semibold text-white mb-3">What to Expect:</h4>
+                <ul className="space-y-2 text-gray-300">
+                  <li className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                    Beautiful full-color illustrations
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                    Age-appropriate lessons about nature
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                    Interactive activities included
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
