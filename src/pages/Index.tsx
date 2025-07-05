@@ -247,7 +247,7 @@ const Index = () => {
             </div>
             <div className="flex justify-center lg:justify-end">
               <img
-                src="about/DP.png?w=500&h=600&fit=crop&crop=face"
+                src="about/Namrata.jpg?w=500&h=600&fit=crop&crop=face"
                 alt="Namrata Agarwal - Children's Book Author"
                 className="rounded-2xl shadow-2xl w-80 h-96 object-cover"
               />
@@ -309,15 +309,23 @@ Sharing has never been so sweet! The Mithai Box Is Not Empty celebrates the joys
                 <ul className="space-y-2 text-gray-600">
                   <li className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                    Beautiful full-color illustrations
+                    Colorful exploration of culture, traditions, food, and celebrations
                   </li>
                   <li className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                    Age-appropriate lessons about nature
+                    Heartwarming lessons on sharing and community
                   </li>
                   <li className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-green-600 rounded-full"></div>
-                    Interactive activities included
+                    Gentle guidance on navigating everyday dilemmas
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-600 rounded-full"></div>
+                    Fun, interactive activities to engage young minds
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-600 rounded-full"></div>
+                    A joyful journey that builds empathy and connection
                   </li>
                 </ul>
               </div>
@@ -339,28 +347,26 @@ Sharing has never been so sweet! The Mithai Box Is Not Empty celebrates the joys
               <div className="prose prose-lg text-gray-700 space-y-6">
                 <h3 className="text-2xl font-bold text-gray-800 mb-4">Namrata Agarwal</h3>
                 <p>
-                  Namrata Agarwal is a children's book writer. She has written picture books - MISHA series and 
-                  the GRASSHOPER and THE OWL. She has also written for children's magazines. Her debut book was 
-                  awarded the Purple DragonFly award.
+                  I am a children’s book writer. I have written picture books - Misha series and The Grasshopper and the Owl. I have also written for children’s magazines like Cricket media (Faces) and IntellyJelly.
                 </p>
                 <p>
-                  She is a member of SCBWI and CBI. Currently she lives in NJ with her two kids and husband. 
-                  In her spare time, she enjoys reading and crafting.
+                  I am a member of SCBWI, rateyourstory,org and Writing Barn. Currently I live in New Jersey with her two kids and husband. In my spare time, I enjoy reading and crafting.
                 </p>
               </div>
               
               <div className="mt-8">
                 <h4 className="text-xl font-semibold mb-4 text-gray-800">Follow me on social:</h4>
                 <div className="flex space-x-4">
+                  <a href="https://x.com/namrataagarwal"  target="_blank" className="text-green-600 hover:text-orange-500 transition-colors">
+                    <Twitter className="h-8 w-8" />
+                  </a>
                   <a href="https://www.instagram.com/namrata.writer/"  target="_blank" className="text-green-600 hover:text-orange-500 transition-colors">
                     <Instagram className="h-8 w-8" />
                   </a>
                   <a href="https://www.linkedin.com/in/namrata-agarwal-bb817b13/"  target="_blank" className="text-green-600 hover:text-orange-500 transition-colors">
                     <Linkedin className="h-8 w-8" />
                   </a>
-                  <a href="https://mobile.twitter.com/namrataagarwal"  target="_blank" className="text-green-600 hover:text-orange-500 transition-colors">
-                    <Twitter className="h-8 w-8" />
-                  </a>
+
                 </div>
               </div>
             </div>
@@ -372,7 +378,7 @@ Sharing has never been so sweet! The Mithai Box Is Not Empty celebrates the joys
                   <li>📚 MISHA Series Author</li>
                   <li>🏆 Purple DragonFly Award Winner</li>
                   <li>📍 Based in New Jersey</li>
-                  <li>👥 SCBWI & CBI Member</li>
+                  <li>👥 SCBWI Member</li>
                   <li>✍️ Children's Magazine Contributor</li>
                 </ul>
               </div>
@@ -582,7 +588,7 @@ Sharing has never been so sweet! The Mithai Box Is Not Empty celebrates the joys
                 <a href="https://www.linkedin.com/in/namrata-agarwal-bb817b13/"  target="_blank" className="text-green-600 hover:text-orange-500 transition-colors">
                   <Linkedin className="h-6 w-6" />
                 </a>
-                <a href="https://mobile.twitter.com/namrataagarwal"  target="_blank" className="text-green-600 hover:text-orange-500 transition-colors">
+                <a href="https://x.com/namrataagarwal"  target="_blank" className="text-green-600 hover:text-orange-500 transition-colors">
                   <Twitter className="h-6 w-6" />
                 </a>
               </div>
