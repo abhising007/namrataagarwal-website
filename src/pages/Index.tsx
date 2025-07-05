@@ -39,10 +39,10 @@ const Index = () => {
 
     // Send email using EmailJS
     emailjs.send(
-      'service_g0ukk0u', // Replace with your EmailJS service ID
-      'template_5i29o4r', // Replace with your EmailJS template ID
+      'EMAILJS_SERVICE_ID', // Replace with your EmailJS service ID
+      'EMAILJS_TEMPLATE_ID', // Replace with your EmailJS template ID
       templateParams,
-      'ScRPzGJBaq6lcZyzq' // Replace with your EmailJS user ID
+      'EMAILJS_PUBLIC_KEY' // Replace with your EmailJS user ID
     )
     .then((response) => {
       toast({
@@ -190,7 +190,7 @@ const Index = () => {
                 <a href="#awards" className="text-gray-600 hover:text-orange-600 px-3 py-2 text-sm font-medium transition-colors">Awards</a>
                 {/* <a href="#awards" className="text-gray-600 hover:text-orange-600 px-3 py-2 text-sm font-medium transition-colors">Awards</a> */}
                 <a href="#reviews" className="text-gray-600 hover:text-orange-600 px-3 py-2 text-sm font-medium transition-colors">Reviews</a>
-                <a href="#contact" className="text-gray-600 hover:text-orange-600 px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                {/* <a href="#contact" className="text-gray-600 hover:text-orange-600 px-3 py-2 text-sm font-medium transition-colors">Contact</a> */}
               </div>
             </div>
 
@@ -240,9 +240,9 @@ const Index = () => {
                 <Button size="lg" className="bg-orange-600 hover:bg-orange-700 text-white">
                   <a href="#books">Explore My Books</a>
                 </Button>
-                <Button variant="outline" size="lg" className="border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white">
+                {/* <Button variant="outline" size="lg" className="border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white">
                   <a href="#contact">Get In Touch</a>
-                </Button>
+                </Button> */}
               </div>
             </div>
             <div className="flex justify-center lg:justify-end">
@@ -500,7 +500,7 @@ Sharing has never been so sweet! The Mithai Box Is Not Empty celebrates the joys
         </div>
       </section>
 
-      {/* Contact Section */}
+      {/* Contact Section 
       <section id="contact" className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -549,6 +549,7 @@ Sharing has never been so sweet! The Mithai Box Is Not Empty celebrates the joys
           </Card>
         </div>
       </section>
+      */}
 
       {/* Footer */}
       <footer className="bg-white border-t border-green-200 text-gray-800 py-12">
@@ -567,7 +568,8 @@ Sharing has never been so sweet! The Mithai Box Is Not Empty celebrates the joys
                 <li><a href="#about" className="hover:text-green-700 transition-colors">About</a></li>
                 <li><a href="#books" className="hover:text-green-700 transition-colors">Books</a></li>
                 <li><a href="#awards" className="hover:text-green-700 transition-colors">Awards</a></li>
-                <li><a href="#contact" className="hover:text-green-700 transition-colors">Contact</a></li>
+                <li><a href="#reviews" className="hover:text-green-700 transition-colors">Reviews</a></li>
+                {/* <li><a href="#contact" className="hover:text-green-700 transition-colors">Contact</a></li> */}
               </ul>
             </div>
             
