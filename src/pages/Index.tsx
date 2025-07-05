@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Mail, MapPin, Calendar, Award, Star, ExternalLink, Menu, X, Instagram, Linkedin, Twitter, BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -13,6 +12,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import emailjs from 'emailjs-com';
 
 const Index = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,9 +20,44 @@ const Index = () => {
 
   const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for your message. I'll get back to you soon.",
+    
+    // Get form data
+    const formData = new FormData(e.target as HTMLFormElement);
+    const name = formData.get('name') as string;
+    const email = formData.get('email') as string;
+    const subject = formData.get('subject') as string;
+    const message = formData.get('message') as string;
+
+    // EmailJS configuration
+    const templateParams = {
+      from_name: name,
+      from_email: email,
+      subject: subject,
+      message: message,
+      to_name: 'Namrata Agarwal'
+    };
+
+    // Send email using EmailJS
+    emailjs.send(
+      'service_g0ukk0u', // Replace with your EmailJS service ID
+      'template_5i29o4r', // Replace with your EmailJS template ID
+      templateParams,
+      'ScRPzGJBaq6lcZyzq' // Replace with your EmailJS user ID
+    )
+    .then((response) => {
+      toast({
+        title: "Message Sent Successfully!",
+        description: "Thank you for your message. I'll get back to you soon.",
+      });
+      // Reset form
+      (e.target as HTMLFormElement).reset();
+    })
+    .catch((error) => {
+      toast({
+        title: "Error Sending Message",
+        description: "There was an error sending your message. Please try again.",
+        variant: "destructive",
+      });
     });
   };
 
@@ -86,7 +121,6 @@ const Index = () => {
     
   ];
 
-  /*
   const awards = [
     {
       title: "Purple DragonFly Award",
@@ -109,7 +143,6 @@ const Index = () => {
       description: "Multiple school visits promoting literacy and financial education"
     }
   ];
-  */
 
   const reviews = [
     {
@@ -139,25 +172,25 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white">
+    <div className="min-h-screen bg-amber-50 text-gray-800">
       {/* Navigation */}
-      <nav className="bg-slate-800 shadow-sm border-b border-slate-700 sticky top-0 z-50">
+      <nav className="bg-white shadow-sm border-b border-orange-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex-shrink-0">
-              <h1 className="text-2xl font-bold text-white">Namrata Agarwal</h1>
+              <h1 className="text-2xl font-bold text-gray-800">Namrata Agarwal</h1>
             </div>
             
             {/* Desktop Navigation */}
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-8">
-                <a href="#home" className="text-white hover:text-cyan-400 px-3 py-2 text-sm font-medium transition-colors">Home</a>
-                <a href="#about" className="text-gray-300 hover:text-cyan-400 px-3 py-2 text-sm font-medium transition-colors">About</a>
-                <a href="#books" className="text-gray-300 hover:text-cyan-400 px-3 py-2 text-sm font-medium transition-colors">Books</a>
-                <a href="#awards" className="text-gray-300 hover:text-cyan-400 px-3 py-2 text-sm font-medium transition-colors">Awards</a>
-                {/* <a href="#awards" className="text-gray-300 hover:text-cyan-400 px-3 py-2 text-sm font-medium transition-colors">Awards</a> */}
-                <a href="#reviews" className="text-gray-300 hover:text-cyan-400 px-3 py-2 text-sm font-medium transition-colors">Reviews</a>
-                <a href="#contact" className="text-gray-300 hover:text-cyan-400 px-3 py-2 text-sm font-medium transition-colors">Contact</a>
+                <a href="#home" className="text-gray-800 hover:text-orange-600 px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                <a href="#about" className="text-gray-600 hover:text-orange-600 px-3 py-2 text-sm font-medium transition-colors">About</a>
+                <a href="#books" className="text-gray-600 hover:text-orange-600 px-3 py-2 text-sm font-medium transition-colors">Books</a>
+                <a href="#awards" className="text-gray-600 hover:text-orange-600 px-3 py-2 text-sm font-medium transition-colors">Awards</a>
+                {/* <a href="#awards" className="text-gray-600 hover:text-orange-600 px-3 py-2 text-sm font-medium transition-colors">Awards</a> */}
+                <a href="#reviews" className="text-gray-600 hover:text-orange-600 px-3 py-2 text-sm font-medium transition-colors">Reviews</a>
+                <a href="#contact" className="text-gray-600 hover:text-orange-600 px-3 py-2 text-sm font-medium transition-colors">Contact</a>
               </div>
             </div>
 
@@ -167,7 +200,7 @@ const Index = () => {
                 variant="ghost"
                 size="sm"
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-white hover:text-cyan-400"
+                className="text-gray-800 hover:text-orange-600"
               >
                 {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </Button>
@@ -178,36 +211,36 @@ const Index = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-slate-800 border-t border-slate-700">
-              <a href="#home" className="text-white hover:text-cyan-400 block px-3 py-2 text-base font-medium">Home</a>
-              <a href="#about" className="text-gray-300 hover:text-cyan-400 block px-3 py-2 text-base font-medium">About</a>
-              <a href="#books" className="text-gray-300 hover:text-cyan-400 block px-3 py-2 text-base font-medium">Books</a>
-              <a href="#awards" className="text-gray-300 hover:text-cyan-400 block px-3 py-2 text-base font-medium">Awards</a>
-              <a href="#reviews" className="text-gray-300 hover:text-cyan-400 block px-3 py-2 text-base font-medium">Reviews</a>
-              <a href="#contact" className="text-gray-300 hover:text-cyan-400 block px-3 py-2 text-base font-medium">Contact</a>
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white border-t border-orange-200">
+              <a href="#home" className="text-gray-800 hover:text-orange-600 block px-3 py-2 text-base font-medium">Home</a>
+              <a href="#about" className="text-gray-600 hover:text-orange-600 block px-3 py-2 text-base font-medium">About</a>
+              <a href="#books" className="text-gray-600 hover:text-orange-600 block px-3 py-2 text-base font-medium">Books</a>
+              <a href="#awards" className="text-gray-600 hover:text-orange-600 block px-3 py-2 text-base font-medium">Awards</a>
+              <a href="#reviews" className="text-gray-600 hover:text-orange-600 block px-3 py-2 text-base font-medium">Reviews</a>
+              <a href="#contact" className="text-gray-600 hover:text-orange-600 block px-3 py-2 text-base font-medium">Contact</a>
             </div>
           </div>
         )}
       </nav>
 
       {/* Hero Section */}
-      <section id="home" className="relative bg-gradient-to-r from-slate-800 to-slate-900 py-20 lg:py-32">
+      <section id="home" className="relative bg-gradient-to-r from-orange-50 to-amber-50 py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
-              <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 animate-fade-in">
+              <h1 className="text-4xl lg:text-6xl font-bold text-gray-800 mb-6 animate-fade-in">
                 Welcome to the World of
-                <span className="text-cyan-400 block">Namrata Agarwal</span>
+                <span className="text-orange-600 block">Namrata Agarwal</span>
               </h1>
-              <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                 Children's book writer crafting engaging stories for young minds. 
                 Discover tales that educate, entertain, and inspire curiosity.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Button size="lg" className="bg-cyan-600 hover:bg-cyan-700">
+                <Button size="lg" className="bg-orange-600 hover:bg-orange-700 text-white">
                   <a href="#books">Explore My Books</a>
                 </Button>
-                <Button variant="outline" size="lg" className="border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-slate-900">
+                <Button variant="outline" size="lg" className="border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white">
                   <a href="#contact">Get In Touch</a>
                 </Button>
               </div>
@@ -224,17 +257,17 @@ const Index = () => {
       </section>
 
       {/* Latest Book Hero Section */}
-      <section className="py-20 bg-gradient-to-r from-cyan-900 to-slate-800 border-t border-slate-700">
+      <section className="py-20 bg-gradient-to-r from-green-50 to-emerald-50 border-t border-green-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 bg-cyan-600/20 text-cyan-300 px-4 py-2 rounded-full text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 bg-green-600/20 text-green-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
               <Calendar className="h-4 w-4" />
               Coming September 2025
             </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
               Latest Book Release
             </h2>
-            <div className="w-24 h-1 bg-cyan-400 mx-auto"></div>
+            <div className="w-24 h-1 bg-green-600 mx-auto"></div>
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -249,41 +282,41 @@ const Index = () => {
             </div>
             
             <div className="order-1 lg:order-2 text-center lg:text-left">
-              <h3 className="text-3xl lg:text-4xl font-bold text-white mb-6">
+              <h3 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-6">
                 The Mithai Box Is Not Empty
               </h3>
-              <p className="text-lg text-gray-300 mb-8 leading-relaxed">
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 This delicious sweet picture book celebrates the joys (and rewards) of sharing. . . and delectable Indian desserts!
 
-Ria wants to be the best chai party host to impress her grandparents, who are visiting all the way from India. She even shares her precious mithai box of her favorite sweet, motichoor ladoo, with the whole family. After all, her grandparents always taught her “Atithi devo bhava, like God we welcome our guests with warmth and respect.”
+Ria wants to be the best chai party host to impress her grandparents, who are visiting all the way from India. She even shares her precious mithai box of her favorite sweet, motichoor ladoo, with the whole family. After all, her grandparents always taught her "Atithi devo bhava, like God we welcome our guests with warmth and respect."
 
-Everyone loves the motichoor ladoo. And Ria is happy that everyone else is happy. But as the ladoo disappears, she worries that there will be none left for her. What good is being the best host if Ria doesn’t get to have fun too?
+Everyone loves the motichoor ladoo. And Ria is happy that everyone else is happy. But as the ladoo disappears, she worries that there will be none left for her. What good is being the best host if Ria doesn't get to have fun too?
 
 But her grandmother has a surprise. . .one last motichoor ladoo!
 
-Sharing has never been so sweet! The Mithai Box Is Not Empty celebrates the joys of generosity, but reminds us not to forget our own happiness. An author’s note on mithais and a matching mithai game are included in the back of the book.
+Sharing has never been so sweet! The Mithai Box Is Not Empty celebrates the joys of generosity, but reminds us not to forget our own happiness. An author's note on mithais and a matching mithai game are included in the back of the book.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
-                <Button size="lg" className="bg-cyan-600 hover:bg-cyan-700">
+                <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white">
                   <ExternalLink className="h-5 w-5 mr-2" />
                   Pre-order on Amazon
                 </Button>
               </div>
               
-              <div className="bg-slate-800/50 p-6 rounded-lg border border-slate-700">
-                <h4 className="font-semibold text-white mb-3">What to Expect:</h4>
-                <ul className="space-y-2 text-gray-300">
+              <div className="bg-white/80 p-6 rounded-lg border border-green-200 shadow-lg">
+                <h4 className="font-semibold text-gray-800 mb-3">What to Expect:</h4>
+                <ul className="space-y-2 text-gray-600">
                   <li className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                    <div className="w-2 h-2 bg-green-600 rounded-full"></div>
                     Beautiful full-color illustrations
                   </li>
                   <li className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                    <div className="w-2 h-2 bg-green-600 rounded-full"></div>
                     Age-appropriate lessons about nature
                   </li>
                   <li className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-cyan-400 rounded-full"></div>
+                    <div className="w-2 h-2 bg-green-600 rounded-full"></div>
                     Interactive activities included
                   </li>
                 </ul>
@@ -294,17 +327,17 @@ Sharing has never been so sweet! The Mithai Box Is Not Empty celebrates the joys
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-slate-800">
+      <section id="about" className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">About</h2>
-            <div className="w-20 h-1 bg-cyan-400 mx-auto mb-8"></div>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-6">About</h2>
+            <div className="w-20 h-1 bg-green-600 mx-auto mb-8"></div>
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
             <div className="lg:col-span-2">
-              <div className="prose prose-lg text-gray-300 space-y-6">
-                <h3 className="text-2xl font-bold text-white mb-4">Namrata Agarwal</h3>
+              <div className="prose prose-lg text-gray-700 space-y-6">
+                <h3 className="text-2xl font-bold text-gray-800 mb-4">Namrata Agarwal</h3>
                 <p>
                   Namrata Agarwal is a children's book writer. She has written picture books - MISHA series and 
                   the GRASSHOPER and THE OWL. She has also written for children's magazines. Her debut book was 
@@ -317,15 +350,15 @@ Sharing has never been so sweet! The Mithai Box Is Not Empty celebrates the joys
               </div>
               
               <div className="mt-8">
-                <h4 className="text-xl font-semibold mb-4 text-white">Follow me on social:</h4>
+                <h4 className="text-xl font-semibold mb-4 text-gray-800">Follow me on social:</h4>
                 <div className="flex space-x-4">
-                  <a href="https://www.instagram.com/namrata.writer/"  target="_blank" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+                  <a href="https://www.instagram.com/namrata.writer/"  target="_blank" className="text-green-600 hover:text-orange-500 transition-colors">
                     <Instagram className="h-8 w-8" />
                   </a>
-                  <a href="https://www.linkedin.com/in/namrata-agarwal-bb817b13/"  target="_blank" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+                  <a href="https://www.linkedin.com/in/namrata-agarwal-bb817b13/"  target="_blank" className="text-green-600 hover:text-orange-500 transition-colors">
                     <Linkedin className="h-8 w-8" />
                   </a>
-                  <a href="https://mobile.twitter.com/namrataagarwal"  target="_blank" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+                  <a href="https://mobile.twitter.com/namrataagarwal"  target="_blank" className="text-green-600 hover:text-orange-500 transition-colors">
                     <Twitter className="h-8 w-8" />
                   </a>
                 </div>
@@ -333,9 +366,9 @@ Sharing has never been so sweet! The Mithai Box Is Not Empty celebrates the joys
             </div>
             
             <div className="space-y-6">
-              <div className="bg-slate-700 p-6 rounded-lg">
-                <h3 className="font-semibold mb-4 text-white">Quick Facts</h3>
-                <ul className="space-y-2 text-gray-300">
+              <div className="bg-green-50 p-6 rounded-lg border border-green-100">
+                <h3 className="font-semibold mb-4 text-gray-800">Quick Facts</h3>
+                <ul className="space-y-2 text-gray-700">
                   <li>📚 MISHA Series Author</li>
                   <li>🏆 Purple DragonFly Award Winner</li>
                   <li>📍 Based in New Jersey</li>
@@ -349,19 +382,19 @@ Sharing has never been so sweet! The Mithai Box Is Not Empty celebrates the joys
       </section>
 
       {/* Books Section */}
-      <section id="books" className="py-20 bg-slate-900">
+      <section id="books" className="py-20 bg-amber-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">Books</h2>
-            <div className="w-20 h-1 bg-cyan-400 mx-auto mb-8"></div>
-            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-6">Books</h2>
+            <div className="w-20 h-1 bg-green-600 mx-auto mb-8"></div>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Discover engaging stories that educate and entertain young readers.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {books.map((book) => (
-              <Card key={book.id} className="bg-slate-800 border-slate-700 overflow-hidden hover:shadow-lg transition-shadow duration-300">
+              <Card key={book.id} className="bg-white border border-green-100 overflow-hidden hover:shadow-lg transition-shadow duration-300">
                 <div className="flex flex-col lg:flex-row">
                   <div className="lg:w-2/5 flex-shrink-0 pl-4">
                     <div className="aspect-[3/4] overflow-hidden">
@@ -374,15 +407,15 @@ Sharing has never been so sweet! The Mithai Box Is Not Empty celebrates the joys
                   </div>
                   <div className="lg:w-3/5 p-4 flex flex-col justify-between">
                     <div>
-                      <h3 className="text-lg font-bold text-white mb-2">{book.title}</h3>
-                      <div className="w-8 h-1 bg-cyan-400 mb-3"></div>
-                      <p className="text-gray-300 text-sm leading-relaxed mb-4 line-clamp-6">
+                      <h3 className="text-lg font-bold text-gray-800 mb-2">{book.title}</h3>
+                      <div className="w-8 h-1 bg-green-600 mb-3"></div>
+                      <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-6">
                         {book.description}
                       </p>
                     </div>
                     <div className="mt-auto">
                       <a href={book.amazonUrl} target="_blank">
-                        <Button size="sm" className="bg-slate-700 hover:bg-slate-600 text-white border border-slate-600 w-full lg:w-auto">
+                        <Button size="sm" className="bg-green-600 hover:bg-green-700 text-white border border-green-600 w-full lg:w-auto">
                           <ExternalLink className="h-4 w-4 mr-2" />
                           Order Now
                         </Button>
@@ -397,18 +430,18 @@ Sharing has never been so sweet! The Mithai Box Is Not Empty celebrates the joys
       </section>
 
       {/* Activities & Magazines Section */}
-      <section id="awards" className="py-20 bg-slate-800">
+      <section id="awards" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">Awards & Magazines</h2>
-            <div className="w-20 h-1 bg-cyan-400 mx-auto mb-8"></div>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-6">Awards & Magazines</h2>
+            <div className="w-20 h-1 bg-green-600 mx-auto mb-8"></div>
           </div>
 
           <Carousel className="w-full max-w-4xl mx-auto">
             <CarouselContent className="-ml-4">
               {activities.map((activity, index) => (
                 <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                  <Card className="bg-slate-700 border-slate-600 overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                  <Card className="bg-green-50 border border-green-100 overflow-hidden hover:shadow-lg transition-shadow duration-300">
                     <div className="aspect-[4/3] overflow-hidden">
                       <img
                         src={activity.image}
@@ -420,121 +453,39 @@ Sharing has never been so sweet! The Mithai Box Is Not Empty celebrates the joys
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="bg-slate-700 border-slate-600 text-white hover:bg-slate-600" />
-            <CarouselNext className="bg-slate-700 border-slate-600 text-white hover:bg-slate-600" />
+            <CarouselPrevious className="bg-green-100 border-green-200 text-green-700 hover:bg-green-200" />
+            <CarouselNext className="bg-green-100 border-green-200 text-green-700 hover:bg-green-200" />
           </Carousel>
         </div>
       </section>
 
-      {/* Awards & Visits Section
-      <section id="awards" className="py-20 bg-slate-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">Award & Visits</h2>
-            <div className="w-20 h-1 bg-cyan-400 mx-auto mb-8"></div>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-
-            <div>
-              <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-2">
-                <Award className="h-6 w-6 text-cyan-400" />
-                Awards & Recognition
-              </h3>
-              <div className="space-y-6">
-                {awards.map((award, index) => (
-                  <Card key={index} className="bg-slate-800 border-slate-700 overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                    <div className="flex flex-col lg:flex-row">
-                      <div className="lg:w-2/5 flex-shrink-0 pl-4 flex items-center justify-center">
-                        <div className="w-16 h-16 bg-yellow-500 rounded-lg flex items-center justify-center">
-                          <Award className="h-8 w-8 text-white" />
-                        </div>
-                      </div>
-                      <div className="lg:w-3/5 p-4 flex flex-col justify-between">
-                        <div>
-                          <h4 className="text-lg font-bold text-white mb-2">{award.title}</h4>
-                          <div className="w-8 h-1 bg-cyan-400 mb-3"></div>
-                          <div className="text-gray-300 mb-2 text-sm">
-                            <span>{award.organization} • {award.year}</span>
-                          </div>
-                          <p className="text-gray-400 text-sm leading-relaxed line-clamp-4">
-                            {award.description}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </Card>
-                ))}
-              </div>
-            </div>
-
-
-            <div>
-              <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-2">
-                <MapPin className="h-6 w-6 text-cyan-400" />
-                School Visits
-              </h3>
-              <div className="space-y-6">
-                {visits.map((visit, index) => (
-                  <Card key={index} className="bg-slate-800 border-slate-700 overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                    <div className="flex flex-col lg:flex-row">
-                      <div className="lg:w-2/5 flex-shrink-0 pl-4 flex items-center justify-center">
-                        <div className="w-16 h-16 bg-cyan-500 rounded-lg flex items-center justify-center">
-                          <MapPin className="h-8 w-8 text-white" />
-                        </div>
-                      </div>
-                      <div className="lg:w-3/5 p-4 flex flex-col justify-between">
-                        <div>
-                          <h4 className="text-lg font-bold text-white mb-2">{visit.title}</h4>
-                          <div className="w-8 h-1 bg-cyan-400 mb-3"></div>
-                          <div className="text-gray-300 mb-2 text-sm">
-                            <span className="flex items-center gap-2">
-                              <MapPin className="h-4 w-4" />
-                              {visit.location}
-                            </span>
-                          </div>
-                          <p className="text-gray-400 text-sm leading-relaxed line-clamp-4">
-                            {visit.description}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </Card>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-       */}
-
       {/* Reviews Section */}
-      <section id="reviews" className="py-20 bg-slate-800">
+      <section id="reviews" className="py-20 bg-amber-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">Reviews</h2>
-            <div className="w-20 h-1 bg-cyan-400 mx-auto mb-8"></div>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-6">Reviews</h2>
+            <div className="w-20 h-1 bg-green-600 mx-auto mb-8"></div>
           </div>
 
           <Carousel className="w-full max-w-4xl mx-auto">
             <CarouselContent>
               {reviews.map((review, index) => (
                 <CarouselItem key={index}>
-                  <Card className="bg-slate-700 border-slate-600">
-                    <CardContent className="p-8 text-center">
-                      <div className="flex justify-center mb-6">
+                  <Card className="bg-green-50 border border-green-100">
+                    <CardContent className="p-8 text-center h-80 flex flex-col justify-between">
+                      <div className="flex justify-center mb-4">
                         {[...Array(review.rating)].map((_, i) => (
-                          <Star key={i} className="h-5 w-5 fill-green-600 text-green-600" />
+                          <Star key={i} className="h-4 w-4 fill-green-600 text-green-600" />
                         ))}
                       </div>
-                      <blockquote className="text-gray-300 mb-6 italic text-lg leading-relaxed">
+                      <blockquote className="text-gray-700 mb-4 italic text-base leading-relaxed flex-1 flex items-center justify-center">
                         "{review.text}"
                       </blockquote>
-                      <div className="space-y-2">
-                        <cite className="text-lg font-semibold text-cyan-400">
+                      <div className="space-y-1">
+                        <cite className="text-sm font-semibold text-green-600">
                           {review.bookTitle}
                         </cite>
-                        <p className="text-sm text-gray-400">
+                        <p className="text-xs text-gray-500">
                           — {review.author}
                         </p>
                       </div>
@@ -543,53 +494,53 @@ Sharing has never been so sweet! The Mithai Box Is Not Empty celebrates the joys
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="bg-slate-700 border-slate-600 text-white hover:bg-slate-600" />
-            <CarouselNext className="bg-slate-700 border-slate-600 text-white hover:bg-slate-600" />
+            <CarouselPrevious className="bg-green-100 border-green-200 text-green-700 hover:bg-green-200" />
+            <CarouselNext className="bg-green-100 border-green-200 text-green-700 hover:bg-green-200" />
           </Carousel>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-slate-900">
+      <section id="contact" className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">Get In Touch</h2>
-            <div className="w-20 h-1 bg-cyan-400 mx-auto mb-8"></div>
-            <p className="text-lg text-gray-300">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-6">Get In Touch</h2>
+            <div className="w-20 h-1 bg-green-600 mx-auto mb-8"></div>
+            <p className="text-lg text-gray-600">
               I'd love to hear from you! Whether you have questions about my books or want to arrange a school visit.
             </p>
           </div>
 
-          <Card className="bg-slate-800 border-slate-700 shadow-lg">
+          <Card className="bg-white border border-green-100 shadow-lg">
             <CardContent className="p-8">
               <form onSubmit={handleContactSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                       Name
                     </label>
-                    <Input id="name" type="text" required className="w-full bg-slate-700 border-slate-600 text-white" />
+                    <Input id="name" name="name" type="text" required className="w-full bg-green-50 border-green-200 text-gray-800" />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
                       Email
                     </label>
-                    <Input id="email" type="email" required className="w-full bg-slate-700 border-slate-600 text-white" />
+                    <Input id="email" name="email" type="email" required className="w-full bg-green-50 border-green-200 text-gray-800" />
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
                     Subject
                   </label>
-                  <Input id="subject" type="text" required className="w-full bg-slate-700 border-slate-600 text-white" />
+                  <Input id="subject" name="subject" type="text" required className="w-full bg-green-50 border-green-200 text-gray-800" />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
                     Message
                   </label>
-                  <Textarea id="message" rows={6} required className="w-full bg-slate-700 border-slate-600 text-white" />
+                  <Textarea id="message" name="message" rows={6} required className="w-full bg-green-50 border-green-200 text-gray-800" />
                 </div>
-                <Button type="submit" size="lg" className="w-full bg-cyan-600 hover:bg-cyan-700">
+                <Button type="submit" size="lg" className="w-full bg-green-600 hover:bg-green-700 text-white">
                   <Mail className="h-5 w-5 mr-2" />
                   Send Message
                 </Button>
@@ -600,43 +551,43 @@ Sharing has never been so sweet! The Mithai Box Is Not Empty celebrates the joys
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-900 border-t border-slate-700 text-white py-12">
+      <footer className="bg-white border-t border-green-200 text-gray-800 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
               <h3 className="text-2xl font-bold mb-4">Namrata Agarwal</h3>
-              <p className="text-gray-400 mb-4">
+              <p className="text-gray-500 mb-4">
                 Children's book writer crafting engaging stories for young minds.
               </p>
             </div>
             
             <div>
               <h4 className="font-semibold mb-4">Quick Links</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#about" className="hover:text-white transition-colors">About</a></li>
-                <li><a href="#books" className="hover:text-white transition-colors">Books</a></li>
-                <li><a href="#awards" className="hover:text-white transition-colors">Awards</a></li>
-                <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
+              <ul className="space-y-2 text-gray-500">
+                <li><a href="#about" className="hover:text-green-700 transition-colors">About</a></li>
+                <li><a href="#books" className="hover:text-green-700 transition-colors">Books</a></li>
+                <li><a href="#awards" className="hover:text-green-700 transition-colors">Awards</a></li>
+                <li><a href="#contact" className="hover:text-green-700 transition-colors">Contact</a></li>
               </ul>
             </div>
             
             <div>
               <h4 className="font-semibold mb-4">Follow Me</h4>
               <div className="flex space-x-4">
-                <a href="https://www.instagram.com/namrata.writer/"  target="_blank" className="text-gray-400 hover:text-white transition-colors">
+                <a href="https://www.instagram.com/namrata.writer/"  target="_blank" className="text-green-600 hover:text-orange-500 transition-colors">
                   <Instagram className="h-6 w-6" />
                 </a>
-                <a href="https://www.linkedin.com/in/namrata-agarwal-bb817b13/"  target="_blank" className="text-gray-400 hover:text-white transition-colors">
+                <a href="https://www.linkedin.com/in/namrata-agarwal-bb817b13/"  target="_blank" className="text-green-600 hover:text-orange-500 transition-colors">
                   <Linkedin className="h-6 w-6" />
                 </a>
-                <a href="https://mobile.twitter.com/namrataagarwal"  target="_blank" className="text-gray-400 hover:text-white transition-colors">
+                <a href="https://mobile.twitter.com/namrataagarwal"  target="_blank" className="text-green-600 hover:text-orange-500 transition-colors">
                   <Twitter className="h-6 w-6" />
                 </a>
               </div>
             </div>
           </div>
           
-          <div className="border-t border-slate-700 pt-8 mt-8 text-center text-gray-400">
+          <div className="border-t border-green-200 pt-8 mt-8 text-center text-gray-500">
             <p>&copy; 2025 Namrata Agarwal. All rights reserved.</p>
           </div>
         </div>
