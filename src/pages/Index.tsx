@@ -460,7 +460,7 @@ Sharing has never been so sweet! The Mithai Box Is Not Empty celebrates the joys
       </section>
 
       {/* Reviews Section */}
-      <section id="reviews" className="py-20 bg-amber-50">
+      <section id="reviews" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-6">Reviews</h2>
