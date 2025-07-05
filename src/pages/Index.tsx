@@ -298,10 +298,12 @@ Sharing has never been so sweet! The Mithai Box Is Not Empty celebrates the joys
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
-                <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white">
-                  <ExternalLink className="h-5 w-5 mr-2" />
-                  Pre-order on Amazon
-                </Button>
+                <a href="https://www.amazon.com/Mithai-Box-Not-Empty/dp/0823454975" target="_blank">
+                  <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white">
+                    <ExternalLink className="h-5 w-5 mr-2" />
+                    Pre-order on Amazon
+                  </Button>
+                </a>
               </div>
               
               <div className="bg-white/80 p-6 rounded-lg border border-green-200 shadow-lg">
