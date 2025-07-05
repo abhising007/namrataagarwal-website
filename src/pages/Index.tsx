@@ -46,7 +46,7 @@ const Index = () => {
     {
       id: 3,
       title: "Misha and her farm adventure",
-      description: "Misha is a very curious little girl. One evening at dinner she asks her dad where food comes from. Misha is very interested in food, and so is her little dog Fluffy, who likes being fed from the table (don't let dad catch on!) Follow Misha and Fluffy as they both learn about seeds and how plants grow, about sun and rain, and even about scarecrows (scary!) and worms (yuck!). This delightful little book is a wonderful introduction to farming for any little boy or girl who has ever asked, "Where does our food come from?" Misha and Fluffy know!",
+      description: "Misha is a very curious little girl. One evening at dinner she asks her dad where food comes from. Misha is very interested in food, and so is her little dog Fluffy, who likes being fed from the table (don't let dad catch on!) Follow Misha and Fluffy as they both learn about seeds and how plants grow, about sun and rain, and even about scarecrows (scary!) and worms (yuck!). This delightful little book is a wonderful introduction to farming for any little boy or girl who has ever asked, \"Where does our food come from?\" Misha and Fluffy know!",
       image: "books/Misha_Farm_SX500.jpg?w=400&h=600&fit=crop",
       amazonUrl: "https://www.amazon.com/gp/product/B014VR37N4/ref=dbs_a_def_rwt_bibl_vppi_i2boo",
       year: "2022"
@@ -64,27 +64,29 @@ const Index = () => {
 
   const activities = [
     {
-      title: "Business Visionaire Magazine Feature",
-      description: "Featured article about innovative approaches in children's education",
-      image: "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=400&h=300&fit=crop"
-    },
-    {
-      title: "Beyond Classrooms Article",
-      description: "Practice is the Key to Success - Educational content for young learners",
-      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=400&h=300&fit=crop"
+      title: "FACES Magazine Feature",
+      description: "Life in Lagos, Nigeria - Cultural exploration for children",
+      image: "awards/purple-dragon-1.png"
     },
     {
       title: "FACES Magazine Feature",
       description: "Life in Lagos, Nigeria - Cultural exploration for children",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=300&fit=crop"
+      image: "magazines/faces-lagos-nigeria.png"
     },
     {
-      title: "Interactive Children's Content",
-      description: "Engaging maze and puzzle activities for young readers",
-      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop"
-    }
+      title: "Intelli Jelly Feature",
+      description: "Featured article about innovative approaches in children's education",
+      image: "magazines/nita-ambani-mango.png"
+    },
+    {
+      title: "Intelli Jelly Feature",
+      description: "Featured article about innovative approaches in children's education",
+      image: "magazines/nita-ambani.png"
+    },
+    
   ];
 
+  /*
   const awards = [
     {
       title: "Purple DragonFly Award",
@@ -107,6 +109,7 @@ const Index = () => {
       description: "Multiple school visits promoting literacy and financial education"
     }
   ];
+  */
 
   const reviews = [
     {
@@ -151,8 +154,8 @@ const Index = () => {
                 <a href="#home" className="text-white hover:text-cyan-400 px-3 py-2 text-sm font-medium transition-colors">Home</a>
                 <a href="#about" className="text-gray-300 hover:text-cyan-400 px-3 py-2 text-sm font-medium transition-colors">About</a>
                 <a href="#books" className="text-gray-300 hover:text-cyan-400 px-3 py-2 text-sm font-medium transition-colors">Books</a>
-                <a href="#activities" className="text-gray-300 hover:text-cyan-400 px-3 py-2 text-sm font-medium transition-colors">Activities</a>
                 <a href="#awards" className="text-gray-300 hover:text-cyan-400 px-3 py-2 text-sm font-medium transition-colors">Awards</a>
+                {/* <a href="#awards" className="text-gray-300 hover:text-cyan-400 px-3 py-2 text-sm font-medium transition-colors">Awards</a> */}
                 <a href="#reviews" className="text-gray-300 hover:text-cyan-400 px-3 py-2 text-sm font-medium transition-colors">Reviews</a>
                 <a href="#contact" className="text-gray-300 hover:text-cyan-400 px-3 py-2 text-sm font-medium transition-colors">Contact</a>
               </div>
@@ -179,7 +182,6 @@ const Index = () => {
               <a href="#home" className="text-white hover:text-cyan-400 block px-3 py-2 text-base font-medium">Home</a>
               <a href="#about" className="text-gray-300 hover:text-cyan-400 block px-3 py-2 text-base font-medium">About</a>
               <a href="#books" className="text-gray-300 hover:text-cyan-400 block px-3 py-2 text-base font-medium">Books</a>
-              <a href="#activities" className="text-gray-300 hover:text-cyan-400 block px-3 py-2 text-base font-medium">Activities</a>
               <a href="#awards" className="text-gray-300 hover:text-cyan-400 block px-3 py-2 text-base font-medium">Awards</a>
               <a href="#reviews" className="text-gray-300 hover:text-cyan-400 block px-3 py-2 text-base font-medium">Reviews</a>
               <a href="#contact" className="text-gray-300 hover:text-cyan-400 block px-3 py-2 text-base font-medium">Contact</a>
@@ -357,30 +359,30 @@ Sharing has never been so sweet! The Mithai Box Is Not Empty celebrates the joys
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {books.map((book) => (
               <Card key={book.id} className="bg-slate-800 border-slate-700 overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                <div className="flex flex-col md:flex-row">
-                  <div className="md:w-1/3 flex-shrink-0">
-                    <div className="aspect-square overflow-hidden">
+                <div className="flex flex-col lg:flex-row">
+                  <div className="lg:w-2/5 flex-shrink-0 pl-4">
+                    <div className="aspect-[3/4] overflow-hidden">
                       <img
                         src={book.image}
                         alt={book.title}
-                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                        className="w-full h-full object-contain hover:scale-105 transition-transform duration-300 rounded-lg"
                       />
                     </div>
                   </div>
-                  <div className="md:w-2/3 p-6 flex flex-col justify-between">
+                  <div className="lg:w-3/5 p-4 flex flex-col justify-between">
                     <div>
-                      <h3 className="text-xl font-bold text-white mb-3">{book.title}</h3>
-                      <div className="w-12 h-1 bg-cyan-400 mb-4"></div>
-                      <p className="text-gray-300 text-sm leading-relaxed mb-6 line-clamp-4">
+                      <h3 className="text-lg font-bold text-white mb-2">{book.title}</h3>
+                      <div className="w-8 h-1 bg-cyan-400 mb-3"></div>
+                      <p className="text-gray-300 text-sm leading-relaxed mb-4 line-clamp-6">
                         {book.description}
                       </p>
                     </div>
                     <div className="mt-auto">
                       <a href={book.amazonUrl} target="_blank">
-                        <Button className="bg-slate-700 hover:bg-slate-600 text-white border border-slate-600 w-full md:w-auto">
+                        <Button size="sm" className="bg-slate-700 hover:bg-slate-600 text-white border border-slate-600 w-full lg:w-auto">
                           <ExternalLink className="h-4 w-4 mr-2" />
                           Order Now
                         </Button>
@@ -395,34 +397,36 @@ Sharing has never been so sweet! The Mithai Box Is Not Empty celebrates the joys
       </section>
 
       {/* Activities & Magazines Section */}
-      <section id="activities" className="py-20 bg-slate-800">
+      <section id="awards" className="py-20 bg-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">Activities & Magazines</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">Awards & Magazines</h2>
             <div className="w-20 h-1 bg-cyan-400 mx-auto mb-8"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-            {activities.map((activity, index) => (
-              <Card key={index} className="bg-slate-700 border-slate-600 overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img
-                    src={activity.image}
-                    alt={activity.title}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <CardContent className="p-6">
-                  <h3 className="text-lg font-semibold text-white mb-2">{activity.title}</h3>
-                  <p className="text-gray-300">{activity.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          <Carousel className="w-full max-w-4xl mx-auto">
+            <CarouselContent className="-ml-4">
+              {activities.map((activity, index) => (
+                <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                  <Card className="bg-slate-700 border-slate-600 overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                    <div className="aspect-[4/3] overflow-hidden">
+                      <img
+                        src={activity.image}
+                        alt={activity.title}
+                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300 rounded-lg"
+                      />
+                    </div>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="bg-slate-700 border-slate-600 text-white hover:bg-slate-600" />
+            <CarouselNext className="bg-slate-700 border-slate-600 text-white hover:bg-slate-600" />
+          </Carousel>
         </div>
       </section>
 
-      {/* Awards & Visits Section */}
+      {/* Awards & Visits Section
       <section id="awards" className="py-20 bg-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -431,7 +435,7 @@ Sharing has never been so sweet! The Mithai Box Is Not Empty celebrates the joys
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Awards */}
+
             <div>
               <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-2">
                 <Award className="h-6 w-6 text-cyan-400" />
@@ -439,20 +443,32 @@ Sharing has never been so sweet! The Mithai Box Is Not Empty celebrates the joys
               </h3>
               <div className="space-y-6">
                 {awards.map((award, index) => (
-                  <Card key={index} className="bg-slate-800 border-slate-700 border-l-4 border-l-yellow-500">
-                    <CardContent className="p-6">
-                      <h4 className="font-semibold text-lg text-white mb-2">{award.title}</h4>
-                      <div className="text-gray-300 mb-2">
-                        <span>{award.organization} • {award.year}</span>
+                  <Card key={index} className="bg-slate-800 border-slate-700 overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                    <div className="flex flex-col lg:flex-row">
+                      <div className="lg:w-2/5 flex-shrink-0 pl-4 flex items-center justify-center">
+                        <div className="w-16 h-16 bg-yellow-500 rounded-lg flex items-center justify-center">
+                          <Award className="h-8 w-8 text-white" />
+                        </div>
                       </div>
-                      <p className="text-gray-400 text-sm">{award.description}</p>
-                    </CardContent>
+                      <div className="lg:w-3/5 p-4 flex flex-col justify-between">
+                        <div>
+                          <h4 className="text-lg font-bold text-white mb-2">{award.title}</h4>
+                          <div className="w-8 h-1 bg-cyan-400 mb-3"></div>
+                          <div className="text-gray-300 mb-2 text-sm">
+                            <span>{award.organization} • {award.year}</span>
+                          </div>
+                          <p className="text-gray-400 text-sm leading-relaxed line-clamp-4">
+                            {award.description}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   </Card>
                 ))}
               </div>
             </div>
 
-            {/* School Visits */}
+
             <div>
               <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-2">
                 <MapPin className="h-6 w-6 text-cyan-400" />
@@ -460,17 +476,29 @@ Sharing has never been so sweet! The Mithai Box Is Not Empty celebrates the joys
               </h3>
               <div className="space-y-6">
                 {visits.map((visit, index) => (
-                  <Card key={index} className="bg-slate-800 border-slate-700 border-l-4 border-l-cyan-400">
-                    <CardContent className="p-6">
-                      <h4 className="font-semibold text-lg text-white mb-2">{visit.title}</h4>
-                      <div className="text-gray-300 mb-2">
-                        <span className="flex items-center gap-2">
-                          <MapPin className="h-4 w-4" />
-                          {visit.location}
-                        </span>
+                  <Card key={index} className="bg-slate-800 border-slate-700 overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                    <div className="flex flex-col lg:flex-row">
+                      <div className="lg:w-2/5 flex-shrink-0 pl-4 flex items-center justify-center">
+                        <div className="w-16 h-16 bg-cyan-500 rounded-lg flex items-center justify-center">
+                          <MapPin className="h-8 w-8 text-white" />
+                        </div>
                       </div>
-                      <p className="text-gray-400 text-sm">{visit.description}</p>
-                    </CardContent>
+                      <div className="lg:w-3/5 p-4 flex flex-col justify-between">
+                        <div>
+                          <h4 className="text-lg font-bold text-white mb-2">{visit.title}</h4>
+                          <div className="w-8 h-1 bg-cyan-400 mb-3"></div>
+                          <div className="text-gray-300 mb-2 text-sm">
+                            <span className="flex items-center gap-2">
+                              <MapPin className="h-4 w-4" />
+                              {visit.location}
+                            </span>
+                          </div>
+                          <p className="text-gray-400 text-sm leading-relaxed line-clamp-4">
+                            {visit.description}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   </Card>
                 ))}
               </div>
@@ -478,6 +506,7 @@ Sharing has never been so sweet! The Mithai Box Is Not Empty celebrates the joys
           </div>
         </div>
       </section>
+       */}
 
       {/* Reviews Section */}
       <section id="reviews" className="py-20 bg-slate-800">
@@ -495,7 +524,7 @@ Sharing has never been so sweet! The Mithai Box Is Not Empty celebrates the joys
                     <CardContent className="p-8 text-center">
                       <div className="flex justify-center mb-6">
                         {[...Array(review.rating)].map((_, i) => (
-                          <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
+                          <Star key={i} className="h-5 w-5 fill-green-600 text-green-600" />
                         ))}
                       </div>
                       <blockquote className="text-gray-300 mb-6 italic text-lg leading-relaxed">
@@ -586,7 +615,7 @@ Sharing has never been so sweet! The Mithai Box Is Not Empty celebrates the joys
               <ul className="space-y-2 text-gray-400">
                 <li><a href="#about" className="hover:text-white transition-colors">About</a></li>
                 <li><a href="#books" className="hover:text-white transition-colors">Books</a></li>
-                <li><a href="#activities" className="hover:text-white transition-colors">Activities</a></li>
+                <li><a href="#awards" className="hover:text-white transition-colors">Awards</a></li>
                 <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
               </ul>
             </div>
