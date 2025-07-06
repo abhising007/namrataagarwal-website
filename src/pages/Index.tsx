@@ -262,7 +262,7 @@ const Index = () => {
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 bg-green-600/20 text-green-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
               <Calendar className="h-4 w-4" />
-              Coming September 2025
+              Coming in September 2025
             </div>
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
               Latest Book Release
