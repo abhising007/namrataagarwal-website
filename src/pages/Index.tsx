@@ -404,7 +404,7 @@ Sharing has never been so sweet! The Mithai Box Is Not Empty celebrates the joys
             {books.map((book) => (
               <Card key={book.id} className="bg-white border border-green-100 overflow-hidden hover:shadow-lg transition-shadow duration-300">
                 <div className="flex flex-col lg:flex-row">
-                  <div className="lg:w-2/5 flex-shrink-0 pl-4">
+                  <div className="lg:w-2/5 flex-shrink-0 px-4 lg:pl-4 lg:pr-0">
                     <div className="aspect-[3/4] overflow-hidden">
                       <img
                         src={book.image}
